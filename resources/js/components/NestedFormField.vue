@@ -193,7 +193,7 @@ export default {
             shouldDisplay.push(values.every((v) => v >= isMoreThanOrEqual));
           } else if (typeof isLessThanOrEqual !== "undefined") {
             shouldDisplay.push(values.every((v) => v <= isLessThanOrEqual));
-          } else if (includes) {
+          } else if (includes) { 
             shouldDisplay.push(values.every((v) => v && includes.includes(v)));
           } else if (typeof booleanGroup !== "undefined") {
             shouldDisplay.push(values.every((o) => {
