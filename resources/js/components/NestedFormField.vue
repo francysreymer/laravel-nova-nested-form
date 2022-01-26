@@ -1,7 +1,6 @@
 <template>
   <div
     class="relative"
-    v-if="shouldDisplay()"
     v-bind:class="
       shouldDisplay()
         ? 'nova-nested-form-with-content'
