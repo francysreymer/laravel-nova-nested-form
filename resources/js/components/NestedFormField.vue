@@ -14,7 +14,7 @@
       {{ firstError }}
     </help-text>
 
-    <template v-if="shouldDisplay()">
+    <template>
       <template v-if="field.children && field.children.length > 0">
         <card
           :class="{ 'overflow-hidden': field.panel && !index, blah: true }"
