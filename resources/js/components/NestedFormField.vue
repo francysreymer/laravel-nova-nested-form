@@ -14,7 +14,7 @@
       {{ firstError }}
     </help-text>
 
-    <template>
+    <template v-if="shouldDisplay()">
       <template v-if="field.children && field.children.length > 0">
         <card
           :class="{ 'overflow-hidden': field.panel && !index, blah: true }"
@@ -116,7 +116,7 @@ export default {
      */
     fill(formData) {
       if (!this.shouldDisplay()) {
-        //return;
+        return;
       }
       this.field.children.forEach((child) => {
         if (child[this.field.keyName]) {

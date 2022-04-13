@@ -508,7 +508,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     fill: function fill(formData) {
       var _this = this;
 
-      if (!this.shouldDisplay()) {//return;
+      if (!this.shouldDisplay()) {
+        return;
       }
 
       this.field.children.forEach(function (child) {
@@ -27955,8 +27956,138 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "relative",
+      class: _vm.shouldDisplay()
+        ? "nova-nested-form-with-content"
+        : "nova-nested-form-without-content"
+    },
+    [
+      _vm.hasError
+        ? _c("help-text", { staticClass: "error-text mt-2 text-danger p-4" }, [
+            _vm._v("\n    " + _vm._s(_vm.firstError) + "\n  ")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.shouldDisplay()
+        ? [
+            _vm.field.children && _vm.field.children.length > 0
+              ? _vm._l(_vm.field.children, function(child, childIndex) {
+                  return _c(
+                    "card",
+                    {
+                      key: child.id || child.key,
+                      class: {
+                        "overflow-hidden": _vm.field.panel && !_vm.index,
+                        blah: true
+                      },
+                      style: _vm.getStyle(childIndex)
+                    },
+                    [
+                      _c("nested-form-header", {
+                        attrs: { child: child, field: _vm.field }
+                      }),
+                      _vm._v(" "),
+                      _vm._l(child.fields, function(
+                        childField,
+                        childFieldIndex
+                      ) {
+                        return _c(_vm.getComponentName(childField), {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: child.opened,
+                              expression: "child.opened"
+                            }
+                          ],
+                          key: childFieldIndex,
+                          tag: "component",
+                          attrs: {
+                            conditions: _vm.conditions,
+                            errors: _vm.errors,
+                            field: childField,
+                            index: childIndex,
+                            "parent-index": _vm.index,
+                            "resource-id": child.resourceId,
+                            "resource-name": _vm.field.resourceName,
+                            "via-resource": _vm.field.viaResource,
+                            "via-resource-id": _vm.field.viaResourceId
+                          },
+                          on: {
+                            "file-deleted": function($event) {
+                              return _vm.$emit("file-deleted")
+                            }
+                          }
+                        })
+                      })
+                    ],
+                    2
+                  )
+                })
+              : _c(
+                  "div",
+                  {
+                    staticClass: "flex flex-col p-8 items-center justify-center"
+                  },
+                  [
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "text-center my-4 font-bold text-80 text-xl"
+                      },
+                      [
+                        _vm._v(
+                          "\n        " +
+                            _vm._s(
+                              _vm.__("No related :pluralLabel yet.", {
+                                pluralLabel: _vm.field.pluralLabel
+                              })
+                            ) +
+                            "\n      "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("nested-form-add", { attrs: { field: _vm.field } })
+                  ],
+                  1
+                )
+          ]
+        : _c(
+            "div",
+            { staticClass: "flex flex-col p-8 items-center justify-center" },
+            [
+              _c(
+                "p",
+                { staticClass: "text-center my-4 font-bold text-80 text-xl" },
+                [
+                  _vm._v(
+                    "\n      " +
+                      _vm._s(
+                        _vm.__("You cannot add :pluralLabel.", {
+                          pluralLabel: _vm.field.pluralLabel
+                        })
+                      ) +
+                      "\n    "
+                  )
+                ]
+              )
+            ]
+          )
+    ],
+    2
+  )
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
