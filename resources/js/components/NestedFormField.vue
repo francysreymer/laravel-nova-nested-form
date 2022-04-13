@@ -116,7 +116,7 @@ export default {
      */
     fill(formData) {
       if (!this.shouldDisplay()) {
-        return;
+        //return;
       }
       this.field.children.forEach((child) => {
         if (child[this.field.keyName]) {
