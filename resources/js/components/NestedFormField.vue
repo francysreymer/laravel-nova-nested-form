@@ -151,6 +151,7 @@ export default {
      * Whether the current form should be displayed.
      */
     shouldDisplay() {
+      console.log("this.field.displayIf: ", this.field.displayIf);
       if (!this.field.displayIf) {
         return true;
       }
