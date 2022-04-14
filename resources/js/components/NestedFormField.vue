@@ -151,7 +151,6 @@ export default {
      * Whether the current form should be displayed.
      */
     shouldDisplay() {
-      console.log("this.field.displayIf: ", this.field.displayIf);
       if (!this.field.displayIf) {
         return true;
       }
@@ -195,7 +194,7 @@ export default {
           } else if (typeof isLessThanOrEqual !== "undefined") {
             shouldDisplay.push(values.every((v) => v <= isLessThanOrEqual));
           } else if (includes) {
-            shouldDisplay.push(values.every((v) => v && includes.includes(v)));
+            shouldDisplay.push(values.every((v) => v === v && includes.includes(v.toString())));
           } else if (typeof booleanGroup !== "undefined") {
             shouldDisplay.push(values.every((o) => {
                 let oo = JSON.parse(JSON.stringify(o)).filter((x) => {
