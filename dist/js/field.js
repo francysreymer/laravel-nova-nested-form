@@ -557,6 +557,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     shouldDisplay: function shouldDisplay() {
       var _this2 = this;
 
+      console.log("this.field.displayIf: ", this.field.displayIf);
+
       if (!this.field.displayIf) {
         return true;
       }
