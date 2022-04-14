@@ -366,7 +366,7 @@ class NestedForm extends Field implements RelatableField
             }
             $children = collect($newRequest->get($requestAttribute));
             $newRequest->route()->setParameter('resource', $this->resourceName);
-            $this->deleteChildren($newRequest, $model, $children);
+                  $this->deleteChildren($newRequest, $model, $children);
             $this->createOrUpdateChildren($newRequest, $model, $children, $requestAttribute, $this->getRelatedKeys($newRequest));
         } else {
             $model::saved(function ($model) use ($request, $requestAttribute, $attribute) {
